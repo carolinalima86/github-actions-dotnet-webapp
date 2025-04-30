@@ -1,30 +1,18 @@
-name: Dotnet Build e Testes
+name: Teste simples - Atividade Modulo 4
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   schedule:
-    - cron: '0 * * * *' # executa a cada hora
+    - cron: '0 * * * *'  # executa a cada hora
 
 jobs:
-  build:
+  hello:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Instalar .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '7.0.x'
-
-      - name: Restaurar dependências
-        run: dotnet restore
-
-      - name: Build do projeto
-        run: dotnet build --configuration Release
-
-      - name: Executar testes
-        run: dotnet test
+      - name: Mensagem de sucesso
+        run: echo "Workflow executado com sucesso! 🎉"
